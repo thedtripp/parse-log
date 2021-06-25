@@ -1,7 +1,16 @@
+sudo: required
+
 language: python
 python:
-	- "3.7"
-	- "3.9"
+  - "3.7"
+  - "3.9"
 
+services:
+
+before_install:
+  
 script:
-	- ./test_calc.py
+  - ./test_most_active_cookie.py
+
+after_success:
+  - cp ./most_active_cookie.py ./most_active_cookie
