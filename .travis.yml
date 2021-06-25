@@ -10,7 +10,7 @@ services:
 before_install:
   
 script:
-  - ./test_calc.py
+  - python3 test_calc.py
 
 after_success:
   - cp ./calc.py ./calc
