@@ -10,7 +10,7 @@ services:
 before_install:
   
 script:
-  - ./test_most_active_cookie.py
+  - ./test_calc.py
 
 after_success:
-  - cp ./most_active_cookie.py ./most_active_cookie
+  - cp ./calc.py ./calc
