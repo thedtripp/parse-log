@@ -20,7 +20,7 @@ from get_cookies import CookieGetter
 def parse_arguments():
     """Parse the log file name and date from the command line.  """
     
-    parser = argparse.ArgumentParser(description="MOST_ACTIVE_COOKIE: Given a timestamped list of cookies, return the most common cookie on a given date. If no date specified, use current date.")
+    parser = argparse.ArgumentParser(description="MOST_ACTIVE_COOKIE: Given a timestamped list of cookies, return the most common cookie on a given date.")
     parser.add_argument("log_file_name", type=str, help="File to read. Comma-separated CSV expected.")
     parser.add_argument("-d", "--date", type=str, help="Date 'YYYY-MM-DD' to filter on.", required=True)
     return parser.parse_args()
