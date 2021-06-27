@@ -1,0 +1,9 @@
+2021-06-26 23:19:43,818 INFO     Start get_cookies.py
+2021-06-26 23:19:43,823 INFO     End get_cookies.py
+2021-06-26 23:22:58,461 INFO     Start get_cookies.py
+2021-06-26 23:22:58,469 INFO     End get_cookies.py
+2021-06-26 23:23:16,199 INFO     Start get_cookies.py
+2021-06-26 23:23:16,210 CRITICAL File: 'cookie_slog.csv' not found. Please check the file name and try again.
+Exiting.
+2021-06-26 23:23:29,526 INFO     Start get_cookies.py
+2021-06-26 23:23:29,532 INFO     End get_cookies.py

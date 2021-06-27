@@ -1,0 +1,32 @@
+2021-06-26 22:57:16,964 INFO     test_get_cookies.py
+2021-06-26 22:57:16,973 CRITICAL File: 'This_is_not_a_file.csv' not found. Please check the file name and try again.
+Exiting.
+2021-06-26 22:57:16,975 WARNING  Skipped 80 malformed line(s).
+2021-06-26 22:57:16,976 WARNING  Skipped 40 malformed line(s).
+2021-06-26 22:57:16,977 WARNING  Error: Invalid date 'None'. Please use 'YYYY-MM-DD' format.
+2021-06-26 22:57:16,977 WARNING  Error: Invalid date 'None'. Please use 'YYYY-MM-DD' format.
+2021-06-26 22:57:16,978 WARNING  Error: Invalid date 'None'. Please use 'YYYY-MM-DD' format.
+2021-06-26 22:57:16,978 WARNING  Error: Invalid date 'None'. Please use 'YYYY-MM-DD' format.
+2021-06-26 22:57:16,978 WARNING  Error: Invalid date 'None'. Please use 'YYYY-MM-DD' format.
+2021-06-26 22:57:16,979 WARNING  Value Error: Invalid date '2019-02-29'. Please use 'YYYY-MM-DD' format.
+2021-06-26 22:57:16,980 WARNING  Value Error: Invalid date '0000-01-01'. Please use 'YYYY-MM-DD' format.
+2021-06-26 22:57:16,980 WARNING  Value Error: Invalid date 'garbage string'. Please use 'YYYY-MM-DD' format.
+2021-06-26 22:57:16,980 WARNING  Error: Invalid date '19971'. Please use 'YYYY-MM-DD' format.
+2021-06-26 22:57:16,980 INFO     Exiting
+----------------------------------------------------------------------
+2021-06-26 23:15:25,506 INFO     test_get_cookies.py
+2021-06-26 23:15:25,513 CRITICAL File: 'This_is_not_a_file.csv' not found. Please check the file name and try again.
+Exiting.
+2021-06-26 23:15:25,514 WARNING  Skipped 80 malformed line(s).
+2021-06-26 23:15:25,515 WARNING  Skipped 40 malformed line(s).
+2021-06-26 23:15:25,515 WARNING  Error: Invalid date 'None'. Please use 'YYYY-MM-DD' format.
+2021-06-26 23:15:25,516 WARNING  Error: Invalid date 'None'. Please use 'YYYY-MM-DD' format.
+2021-06-26 23:15:25,516 WARNING  Error: Invalid date 'None'. Please use 'YYYY-MM-DD' format.
+2021-06-26 23:15:25,517 WARNING  Error: Invalid date 'None'. Please use 'YYYY-MM-DD' format.
+2021-06-26 23:15:25,517 WARNING  Error: Invalid date 'None'. Please use 'YYYY-MM-DD' format.
+2021-06-26 23:15:25,518 WARNING  Value Error: Invalid date '2019-02-29'. Please use 'YYYY-MM-DD' format.
+2021-06-26 23:15:25,518 WARNING  Value Error: Invalid date '0000-01-01'. Please use 'YYYY-MM-DD' format.
+2021-06-26 23:15:25,518 WARNING  Value Error: Invalid date 'garbage string'. Please use 'YYYY-MM-DD' format.
+2021-06-26 23:15:25,518 WARNING  Error: Invalid date '19971'. Please use 'YYYY-MM-DD' format.
+2021-06-26 23:15:25,518 INFO     Exiting
+----------------------------------------------------------------------

@@ -1,4 +1,12 @@
 #!/usr/bin/env python3
+"""This module is able to output a list of the most active cookie given a timestamped list of cookies and a target date.
+
+This module contains the CookieGetter class with all the methods needed to return 
+the most active cookies for a given date. Though some default variables are provided
+so the file can be run, this module is intended to be imported by the 
+'most_active_cookie.py' file where the CookieGetter class is instantiated.
+"""
+
 import logging
 from datetime import datetime
 from typing import List, Dict
@@ -8,6 +16,7 @@ DATE_STRINGS = ["2018-12-08"]
 LOG_FILE_NAME = "cookie_log.csv"
 
 class CookieGetter():
+    """Output a list of the most active cookies given a timestamped cookie log file and a target date."""
 
     def string_to_date(self, date_string: str) -> datetime:
         """Convert a string to a datetime.date object.  Returns a datetime.date.  
@@ -119,11 +128,19 @@ class CookieGetter():
 
     def print_list(self, list_: List) -> None:
         """Print elements of list on separate lines.  """
+
         for element in list_:
             print(element)
     
     def main(self, log_file: str, date_strings: List[str]) -> List[str]:
-        """Given a cookie log file and a list of dates, output a list of the most active cookies on a specified date.  """
+        """Given a cookie log file and a list of dates, output a list of the most active cookies on a specified date.  
+        
+        Convert date strings to datetime.date objects.  
+        Read log file and store each entry in a list.  
+        Reduce the list of cookies to cookies that occur on target date.  
+        Return the most common cookie(s) which occur on target date(s).  
+        In the event of FileNotFoundError, log an error message.  
+        """
 
         try:
             dates = [self.string_to_date(date_string) for date_string in date_strings]
@@ -137,8 +154,21 @@ class CookieGetter():
             
 
 if __name__ == '__main__':
-    mac = CookieGetter()
-    cookies = mac.main(LOG_FILE_NAME, DATE_STRINGS)
-    mac.print_list(cookies)
+    """Driver code to run the program with default variables.
 
-    logging.info("exiting gracefully".upper())
+    This can me run for demonstration purposes but, this module is intended 
+    to be imported by the 'most_active_cookie.py' file where the CookieGetter 
+    class is instantiated.  Events are logged to 'cookies.log'.  
+    """
+
+    logging.basicConfig(filename="cookies.log", 
+        format="%(asctime)s,%(msecs)03d %(levelname)-8s %(message)s",
+        level=logging.INFO,
+        datefmt="%Y-%m-%d %H:%M:%S")
+    logging.info("Start get_cookies.py")
+
+    cg = CookieGetter()
+    cookies = cg.main(LOG_FILE_NAME, DATE_STRINGS)
+    cg.print_list(cookies)
+
+    logging.info("End get_cookies.py")
