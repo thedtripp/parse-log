@@ -16,7 +16,7 @@ contain the root `toctree` directive. -->
 * test_get_cookies module
 
 
-# Indices and tables
+# Indices and tables:
 
 
 * Index
