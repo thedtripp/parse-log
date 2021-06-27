@@ -1,0 +1,80 @@
+     Skip to secondary menu
+    Skip to main content
+    Skip to primary sidebar
+
+Python and R Tips
+
+Learn Data Science with Python and R
+
+    Home
+    Python
+    Pandas
+        Pandas 101
+    tidyverse
+        tidyverse 101
+    R
+    Linux
+    Conferences
+    Python Books
+    About
+        Privacy Policy
+
+You are here: Home / Python / “with” statement in Python to Open a file
+“with” statement in Python to Open a file
+
+January 12, 2016 by cmdline
+with statement in Python
+with statement in Python
+
+A common way to work with files in Python is to create file handler with “open” statement and work with the file. After finishing the work with the file, we need to close the file handler with close statement. For example, if we want to read all lines of a file using Python , we use
+1
+2
+3
+	
+fh = open(filename,'r')
+all_lines = fh.readlines()
+fh.close()
+
+Often, it is hard to remember to close the file once we are done with the file. Python offers an easy solution for this. We can use with statement in Python such that we don’t have to close the file handler. The with statement creates a context manager and it will automatically close the file handler for you when you are done with it. Here is an example using with statement to read all lines of a file.
+1
+2
+	
+with open(filename,'r') as fh
+     all_lines = fh.readlines()
+
+We can also use with statement to open more than one file. Here is an example of using with statement in Python to open one file for reading and another file for writing.
+1
+2
+3
+4
+5
+	
+with open(in_filename) as in_file, open(out_filename, 'w') as out_file:
+   for line in in_file:
+     ...
+     ... 
+     out_file.write(parsed_line)
+
+Want to know more about the with statement in Python, check out this blog post
+
+    Understanding Python’s “with” statement
+
+Share this:
+
+    TwitterFacebook
+
+Related posts:
+Default Thumbnail3 Ways to Read A Text File Line by Line in Python Default Thumbnail3 Ways to Read a File and Skip Initial Comments in Python Default Thumbnail3 Ways to Write Text to a File in Python Default ThumbnailHow to read entire text file in Python?
+
+Filed Under: Python, with statement in Python Tagged With: Python Tips, with statement in Python
+Primary Sidebar
+Subscribe to Python and R Tips and Learn Data Science
+
+Learn Pandas in Python and Tidyverse in R
+
+Email Address
+
+Tags
+Altair Basic NumPy Book Review Create Directory Data Science Data Science Books Data Science Resources Data Science Roundup Data Visualization Dropbox Dropbox Free Space Dropbox Tips Emacs Emacs Tips File Size ggplot2 Linux Commands Linux Tips Mac Os X Tips Maximum Likelihood Estimation in R MLE in R NumPy Pandas Pandas 101 Pandas Data Frame Pandas Dataframe pandas groupby() Pandas select columns Pandas select_dtypes Python Python 3 Python Boxplot Python Tips R rstats R Tips Seaborn Seaborn Boxplot Shell Scripting Sparse Matrix in Python tidy evaluation tidyverse tidyverse 101 Vim Vim Tips
+
+Copyright © 2021 · Lifestyle Pro on Genesis Framework · WordPress · Log in
