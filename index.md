@@ -5,9 +5,16 @@ contain the root `toctree` directive. -->
 # Welcome to parse-log’s documentation!
 
 ## How to use it:
+### Description:
+
+* A command line program to process a log file and return the most active cookie for a specified day.
+
 ### Requirements:
+
 * Python 3.7+
+
 ### Installation:
+
 * Clone the repo
 * ```$ git clone https://github.com/thedtripp/parse-log.git```
 * Change directory into the cloned repo
