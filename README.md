@@ -304,7 +304,7 @@ Nicely formatted cookies:
 Malformed data:
 
     Expected output: similar to well formatted file. Since the cookies are split
-    on commas, malformed data ()specifically string with leading comma) won’t break 
+    on commas, malformed data (specifically string with leading comma) won’t break 
     the function but it can cause unwanted results such as empty strings in the dict.
 
 
