@@ -19,7 +19,7 @@ sphinx-quickstart on Sun Jun 27 00:02:14 2021. -->
 * Change directory into the cloned repo
 * ```$ cd parse-log```
 ### Run:
-#### unittests
+#### unit tests
 * ```$ python3 test_get_cookies.py```
 #### main code file
 Takes arguments for the ``log file`` to parse and a ``target date`` with a ``-d`` flag.
@@ -304,7 +304,7 @@ Nicely formatted cookies:
 Malformed data:
 
     Expected output: similar to well formatted file. Since the cookies are split
-    on commas, malformed data ()specifically string with leading comma) won’t break 
+    on commas, malformed data (specifically string with leading comma) won’t break 
     the function but it can cause unwanted results such as empty strings in the dict.
 
 
