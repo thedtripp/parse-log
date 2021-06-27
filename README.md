@@ -1,7 +1,5 @@
 <!-- parse-log documentation master file, created by
-sphinx-quickstart on Sun Jun 27 00:02:14 2021.
-You can adapt this file completely to your liking, but it should at least
-contain the root `toctree` directive. -->
+sphinx-quickstart on Sun Jun 27 00:02:14 2021. -->
 # Welcome to parse-log’s documentation!
 
 ## How to use it:
