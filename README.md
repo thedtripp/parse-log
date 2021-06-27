@@ -1,4 +1,4 @@
-<!-- travis-demo documentation master file, created by
+<!-- parse-log documentation master file, created by
 sphinx-quickstart on Sun Jun 27 00:02:14 2021.
 You can adapt this file completely to your liking, but it should at least
 contain the root `toctree` directive. -->
@@ -26,28 +26,61 @@ contain the root `toctree` directive. -->
 Takes arguments for the ``log file`` to parse and a ``target date`` with a ``-d`` flag.
 * ```$ python3 most_active_cookie.py cookie_log.csv -d 2018-12-08```
 
-## Contents:
+
+# Problem Statement
+
+## Most Active Cookie
+
+### Given a cookie log file in the following format:
+
+```
+cookie,timestamp
+AtY0laUfhglK3lC7,2018-12-09T14:19:00+00:00
+SAZuXPGUrfbcn5UA,2018-12-09T10:13:00+00:00
+5UAVanZf6UtGyKVS,2018-12-09T07:25:00+00:00
+AtY0laUfhglK3lC7,2018-12-09T06:19:00+00:00
+SAZuXPGUrfbcn5UA,2018-12-08T22:03:00+00:00
+4sMM2LxV07bPJzwf,2018-12-08T21:30:00+00:00
+fbcn5UAVanZf6UtG,2018-12-08T09:30:00+00:00
+4sMM2LxV07bPJzwf,2018-12-07T23:30:00+00:00
+```
+
+Write a command line program in your preferred language to process the log file and return the most active cookie for specified day. The example below shows how we'll execute your program.
+
+### Command:
+
+```$ ./most_active_cookie cookie_log.csv -d 2018-12-09```
+
+### Output:
+
+```AtY0laUfhglK3lC7```
 
 
-* get_cookies module
+* We define the most active cookie as one seen in the log the most times during a given day.
+
+### Assumptions:
+* If multiple cookies meet that criteria, please return all of them on separate lines.
+
+``` $ ./most_active_cookie cookie_log.csv -d 2018-12-08```
+```
+SAZuXPGUrfbcn5UA
+4sMM2LxV07bPJzwf
+fbcn5UAVanZf6UtG
+```
+* You're only allowed to use additional libraries for testing, logging and cli-parsing. There are libraries for most languages which make this too easy (e.g pandas) and we’d like you to show off you coding skills.
+* You can assume -d parameter takes date in UTC time zone.
+* You have enough memory to store the contents of the whole file.
+* Cookies in the log file are sorted by timestamp (most recent occurrence is first line of the file).
+
+### We're looking for a concise, maintainable, extendable and correct solution. We're hoping you'll deliver your solution as production grade code and demonstrate:
+* good testing practices,
+* knowledge of build systems, testing frameworks, etc.
+* clean coding practices (meaningful names, clean abstractions, etc.)
+
+### Please use a programming language you’re very comfortable with. The next stage of the interview will involve extending your code.
 
 
-* most_active_cookie module
-
-
-* test_get_cookies module
-
-
-## Indices and tables:
-
-
-* Index
-
-
-* Module Index
-
-
-* Search Page
+# Modules
 
 # most_active_cookie module
 
