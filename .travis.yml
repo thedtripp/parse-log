@@ -9,6 +9,5 @@ services:
 before_install:
   
 script:
-  #- ./test_most_active_cookie.py
-  - python test_get_cookies.py
+  - python3 test_get_cookies.py
 after_success:
