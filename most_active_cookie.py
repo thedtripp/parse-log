@@ -38,7 +38,6 @@ def main() -> None:
         datefmt='%Y-%m-%d %H:%M:%S')
     logging.info("Start most_active_cookie.py")
 
-
     args = parse_arguments()
     LOG_FILE_NAME = args.log_file_name
 
