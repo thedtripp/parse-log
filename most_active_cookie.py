@@ -45,23 +45,20 @@ def main() -> None:
             logging.FileHandler("cookies.log"),
             logging.StreamHandler()
         ])
-    logging.info("Start most_active_cookie.py")
+    # logging.info("Start most_active_cookie.py")
 
     args = parse_arguments()
     LOG_FILE_NAME = args.log_file_name
 
     if args.date:
         DATE_STRINGS = [args.date]
-    else:
-        DATE_STRINGS = None
-
-    cg = CookieGetter()
-    if DATE_STRINGS:
+        cg = CookieGetter()
         most_active_cookies = cg.main(LOG_FILE_NAME, DATE_STRINGS)
         cg.print_list(most_active_cookies)
     else:
         logging.critical("No date provied. Please supply a date in YYYY-MM-DD format.")
-    logging.info("End most_active_cookie.py\n" + "-"*70)
+
+    #logging.info("End most_active_cookie.py\n" + "-"*70)
 
 
 if __name__ == "__main__":

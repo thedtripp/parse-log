@@ -103,11 +103,14 @@ class TestCookieGetter(unittest.TestCase):
         """
 
         # Test with no cookies and no dates.
-        self.assertEqual(self.cookie_getter.filter_list_on_dates([], []),[])
+        with self.assertRaises(SystemExit):
+            self.cookie_getter.filter_list_on_dates([], [])
         # Test with no cookies.
-        self.assertEqual(self.cookie_getter.filter_list_on_dates([], [datetime.date(2018, 12, 8)]),[])
+        with self.assertRaises(SystemExit):
+            self.cookie_getter.filter_list_on_dates([], [datetime.date(2018, 12, 8)])
         # Test with no dates.
-        self.assertEqual(self.cookie_getter.filter_list_on_dates(self.cookie_getter.read_file_to_list("cookie_log.csv"), []),[])
+        with self.assertRaises(SystemExit):
+            self.cookie_getter.filter_list_on_dates(self.cookie_getter.read_file_to_list("cookie_log.csv"), [])
         # Regular test case with cookies and a date.
         self.assertEqual(self.cookie_getter.filter_list_on_dates(self.cookie_getter.read_file_to_list("cookie_log.csv"), [datetime.date(2018, 12, 8)]), ["SAZuXPGUrfbcn5UA", "4sMM2LxV07bPJzwf", "fbcn5UAVanZf6UtG"])
 
@@ -228,13 +231,15 @@ class TestCookieGetter(unittest.TestCase):
         self.assertEqual(self.cookie_getter.main("cookie_log.csv", ["2018-12-08"]), ["SAZuXPGUrfbcn5UA", "4sMM2LxV07bPJzwf", "fbcn5UAVanZf6UtG"])
         self.assertEqual(self.cookie_getter.main("cookie_log.csv", ["2018-12-09"]), ["AtY0laUfhglK3lC7"])
         self.assertEqual(self.cookie_getter.main("cookie_log.csv", ["2018-12-07"]), ["4sMM2LxV07bPJzwf"])
-        self.assertEqual(self.cookie_getter.main("cookie_log.csv", ["2018-12-06"]), [])
+        with self.assertRaises(SystemExit):
+            self.cookie_getter.main("cookie_log.csv", ["2018-12-06"])
         self.assertEqual(self.cookie_getter.main("cookie_log.csv", ["2018-12-09", "2018-12-08", "2018-12-07"]), ["AtY0laUfhglK3lC7", "SAZuXPGUrfbcn5UA", "4sMM2LxV07bPJzwf"])
         # Test program in condition: File not found.  
         with self.assertRaises(SystemExit):
             self.cookie_getter.main("This_is_not_a_file.csv", ["2018-12-08"])    
         # Test program in condition: Malformed data in log.  
-        self.assertEqual(self.cookie_getter.main("./test_files/malformed_cookie_log.csv", ["2018-12-08"]), [])
+        with self.assertRaises(SystemExit):
+            self.cookie_getter.main("./test_files/malformed_cookie_log.csv", ["2018-12-08"])
         with self.assertRaises(SystemExit):
             self.cookie_getter.main("./test_files/empty_file.txt", ["2018-12-08"])
         self.assertEqual(self.cookie_getter.main("./test_files/problem_statement.txt", ["2018-12-08"]), ["SAZuXPGUrfbcn5UA", "4sMM2LxV07bPJzwf", "fbcn5UAVanZf6UtG"])

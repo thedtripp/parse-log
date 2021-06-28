@@ -14,7 +14,6 @@ from typing import List, Dict
 
 # Default variables
 DATE_STRINGS = ["2018-12-08"]
-DATE_STRINGS = [2]
 LOG_FILE_NAME = "cookie_log.csvs"
 
 class CookieGetter():
@@ -30,8 +29,6 @@ class CookieGetter():
 
         try:
             return datetime.strptime(date_string, "%Y-%m-%d").date()
-        except ValueError:
-            logging.warning(f"Value Error: Invalid date '{date_string}'. Please use 'YYYY-MM-DD' format.")
         except Exception:
             logging.warning(f"Error: Invalid date '{date_string}'. Please use 'YYYY-MM-DD' format.")
 
@@ -88,7 +85,12 @@ class CookieGetter():
                 malformed_lines += 1
         if malformed_lines > 0:
             logging.warning(f"Log file contains invalid data. Skipped {malformed_lines} malformed line(s).")
-        return filtered_cookie_list
+        # If resulting list is empty, there are no cookies on the specified date. Nothing to do.
+        if not filtered_cookie_list:
+            logging.critical(f"No cookies found on date: {dates}. Exiting")
+            sys.exit()
+        else:
+            return filtered_cookie_list
 
 
     def get_most_active_cookies(self, cookie_list: List[str]) -> List[str]:
@@ -103,7 +105,6 @@ class CookieGetter():
         max_frequency = self.get_max_value_in_dict(cookie_frequency)
         most_common_cookie_list = [cookie for cookie in cookie_frequency.keys() if cookie_frequency[cookie] == max_frequency]
         return most_common_cookie_list
-
 
     def get_max_value_in_dict(self, hashmap: Dict) -> int:
         """Return the maximum frequency given a dictionary of frequencies.  
@@ -157,18 +158,31 @@ class CookieGetter():
         In the event of FileNotFoundError, log an error message.  
         """
 
+        logging.basicConfig(
+            # filename="cookies.log", 
+            # format='%(asctime)s,%(msecs)03d %(levelname)-8s %(message)s',
+            # level=logging.INFO,
+            # datefmt='%Y-%m-%d %H:%M:%S')
+            format="%(asctime)s,%(msecs)03d %(levelname)-8s %(message)s",
+            level=logging.INFO,
+            datefmt="%Y-%m-%d %H:%M:%S",
+            handlers=[
+                logging.FileHandler("cookies.log"),
+                logging.StreamHandler()
+            ])
+
         try:
             dates = [self.string_to_date(date_string) for date_string in date_strings]
             # Check if all dates are None. If so, stop execution because all there are no valid dates.  
             if all(date is None for date in dates):
-                logging.critical("No valid date given. Please enter date in 'YYYY-MM-DD' format.\nExit.")
+                logging.critical("No valid date given. Please enter date in 'YYYY-MM-DD' format. Exit.")
                 sys.exit()
             log_file_as_list = self.read_file_to_list(log_file)
             cookies_on_date = self.filter_list_on_dates(log_file_as_list, dates)
             most_active_cookies_on_date = self.get_most_active_cookies(cookies_on_date)
             return most_active_cookies_on_date
         except FileNotFoundError as err:
-            logging.critical(f"File: '{log_file}' not found. Please check the file name and try again.\nExiting.")
+            logging.critical(f"File: '{log_file}' not found. Please check the file name and try again. Exiting.")
             sys.exit()
             
 
@@ -180,11 +194,11 @@ if __name__ == '__main__':
     class is instantiated.  Events are logged to 'cookies.log'.  
     """
 
-    logging.basicConfig(filename="cookies.log", 
-        format="%(asctime)s,%(msecs)03d %(levelname)-8s %(message)s",
-        level=logging.INFO,
-        datefmt="%Y-%m-%d %H:%M:%S")
-    logging.info("Start get_cookies.py")
+    # logging.basicConfig(filename="cookies.log", 
+    #     format="%(asctime)s,%(msecs)03d %(levelname)-8s %(message)s",
+    #     level=logging.INFO,
+    #     datefmt="%Y-%m-%d %H:%M:%S")
+    # logging.info("Start get_cookies.py")
 
     cg = CookieGetter()
     cookies = cg.main(LOG_FILE_NAME, DATE_STRINGS)
