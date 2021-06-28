@@ -34,10 +34,9 @@ class TestCookieGetter(unittest.TestCase):
 
         logging.info("Tests complete. Exiting\n" + "-"*70)
 
-
     def setUp(self):
         """Instantiate the CookieGetter() class.  """
-
+        
         self.cookie_getter = CookieGetter()
 
     def test_string_to_date(self):
@@ -240,6 +239,7 @@ class TestCookieGetter(unittest.TestCase):
         # Test program in condition: Malformed data in log.  
         with self.assertRaises(SystemExit):
             self.cookie_getter.main("./test_files/malformed_cookie_log.csv", ["2018-12-08"])
+        # Test program in condition: Empty log file.  
         with self.assertRaises(SystemExit):
             self.cookie_getter.main("./test_files/empty_file.txt", ["2018-12-08"])
         self.assertEqual(self.cookie_getter.main("./test_files/problem_statement.txt", ["2018-12-08"]), ["SAZuXPGUrfbcn5UA", "4sMM2LxV07bPJzwf", "fbcn5UAVanZf6UtG"])
