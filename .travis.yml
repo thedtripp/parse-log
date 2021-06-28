@@ -1,8 +1,3 @@
-# .travis.yml is a YAML file which specifies the programming
-# language used, and the desired building and testing environment
-# (including dependencies which must be installed before the
-# software can be built and tested) and various other parameters.
-
 language: python
 
 python:
@@ -21,4 +16,4 @@ script:
   - ./test_get_cookies.py
 
 after_success:
-
+  
