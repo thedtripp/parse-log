@@ -33,10 +33,18 @@ def main() -> None:
     Events are logged to 'cookies.log'.  
     """
 
-    logging.basicConfig(filename="cookies.log", 
-        format='%(asctime)s,%(msecs)03d %(levelname)-8s %(message)s',
+    logging.basicConfig(
+        # filename="cookies.log", 
+        # format='%(asctime)s,%(msecs)03d %(levelname)-8s %(message)s',
+        # level=logging.INFO,
+        # datefmt='%Y-%m-%d %H:%M:%S')
+        format="%(asctime)s,%(msecs)03d %(levelname)-8s %(message)s",
         level=logging.INFO,
-        datefmt='%Y-%m-%d %H:%M:%S')
+        datefmt="%Y-%m-%d %H:%M:%S",
+        handlers=[
+            logging.FileHandler("cookies.log"),
+            logging.StreamHandler()
+        ])
     logging.info("Start most_active_cookie.py")
 
     args = parse_arguments()

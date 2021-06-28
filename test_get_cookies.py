@@ -32,7 +32,7 @@ class TestCookieGetter(unittest.TestCase):
     def tearDownClass(cls):
         """Log exit message with a line break to separate successive runs of the program.  """
 
-        logging.info("Exiting\n" + "-"*70)
+        logging.info("Tests complete. Exiting\n" + "-"*70)
 
 
     def setUp(self):
@@ -85,7 +85,8 @@ class TestCookieGetter(unittest.TestCase):
             "4sMM2LxV07bPJzwf,2018-12-07T23:30:00+00:00"
             ]
         )
-        self.assertEqual(self.cookie_getter.read_file_to_list("./test_files/empty_file.txt"),[])
+        with self.assertRaises(SystemExit):
+            self.cookie_getter.read_file_to_list("./test_files/empty_file.txt")
 
     def test_filter_list_on_dates(self):
         """Test test_filter_list_on_dates() function.  
@@ -157,8 +158,8 @@ class TestCookieGetter(unittest.TestCase):
         dict_d = {}
         self.assertEqual(self.cookie_getter.get_max_value_in_dict(dict_d), 0)
         dict_e = {"abc": "cat", "def": False, "ghi": 0, "jkl": 0, "":0}
-        with self.assertRaises(TypeError):
-            self.cookie_getter.get_max_value_in_dict(dict_e, 0)
+        with self.assertRaises(SystemExit):
+            self.cookie_getter.get_max_value_in_dict(dict_e)
 
     def test_get_most_active_cookies(self):
         """Test test_get_most_active_cookies() function.  
@@ -230,18 +231,22 @@ class TestCookieGetter(unittest.TestCase):
         self.assertEqual(self.cookie_getter.main("cookie_log.csv", ["2018-12-06"]), [])
         self.assertEqual(self.cookie_getter.main("cookie_log.csv", ["2018-12-09", "2018-12-08", "2018-12-07"]), ["AtY0laUfhglK3lC7", "SAZuXPGUrfbcn5UA", "4sMM2LxV07bPJzwf"])
         # Test program in condition: File not found.  
-        with self.assertRaises(FileNotFoundError):
-            self.cookie_getter.main("This_is_not_a_file.csv", ["2018-12-08"])      
+        with self.assertRaises(SystemExit):
+            self.cookie_getter.main("This_is_not_a_file.csv", ["2018-12-08"])    
         # Test program in condition: Malformed data in log.  
         self.assertEqual(self.cookie_getter.main("./test_files/malformed_cookie_log.csv", ["2018-12-08"]), [])
-        self.assertEqual(self.cookie_getter.main("./test_files/empty_file.txt", ["2018-12-08"]), [])
+        with self.assertRaises(SystemExit):
+            self.cookie_getter.main("./test_files/empty_file.txt", ["2018-12-08"])
         self.assertEqual(self.cookie_getter.main("./test_files/problem_statement.txt", ["2018-12-08"]), ["SAZuXPGUrfbcn5UA", "4sMM2LxV07bPJzwf", "fbcn5UAVanZf6UtG"])
         # Test program in condition: Empty date List.  
-        self.assertEqual(self.cookie_getter.main("cookie_log.csv", []), [])
+        with self.assertRaises(SystemExit):
+            self.cookie_getter.main("cookie_log.csv", [])
         # Test program in condition: Invalid date.  
-        self.assertEqual(self.cookie_getter.main("cookie_log.csv", [None]), [])
+        with self.assertRaises(SystemExit):
+            self.cookie_getter.main("cookie_log.csv", [None])
         # Test program in condition: All invalid dates.  
-        self.assertEqual(self.cookie_getter.main("cookie_log.csv", [None, None]), [])
+        with self.assertRaises(SystemExit):
+            self.cookie_getter.main("cookie_log.csv", [None, None])
         # Test program in condition: Some invalid dates.  
         self.assertEqual(self.cookie_getter.main("cookie_log.csv", [None, "2018-12-08", None]), ["SAZuXPGUrfbcn5UA", "4sMM2LxV07bPJzwf", "fbcn5UAVanZf6UtG"])
 
