@@ -184,7 +184,7 @@ class CookieGetter():
 if __name__ == '__main__':
     """Driver code to run the program with default variables.
 
-    This can me run for demonstration purposes but, this module is intended 
+    This can be run for demonstration purposes but, this module is intended 
     to be imported by the 'most_active_cookie.py' file where the CookieGetter 
     class is instantiated.  Events are logged to 'cookies.log'.  
     """
@@ -193,7 +193,7 @@ if __name__ == '__main__':
         format="%(asctime)s,%(msecs)03d %(levelname)-8s %(message)s",
         level=logging.INFO,
         datefmt="%Y-%m-%d %H:%M:%S")
-        
+
     logging.info("Start get_cookies.py")
 
     cg = CookieGetter()
