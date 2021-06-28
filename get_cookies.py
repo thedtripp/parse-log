@@ -57,8 +57,9 @@ class CookieGetter():
         """Return a List of all cookies that appear on the specified date(s).  
 
         Inputs:
-            A List of cookies and datetime formatted as: 'cookie,YYYY-MM-DDThh:mm:ss:TZD'.  
-            A List of dates. Note: This may be a singleton List.  
+        A List of cookies and datetime formatted as: 'cookie,YYYY-MM-DDThh:mm:ss:TZD'.  
+        A List of dates. Note: This may be a singleton List.  
+        
         For each cookie in the List, the cookie is included if the corresponding date is 
         contained in the List of dates.  Else, the cookie is excluded from the output.  
         Split the strings on ',' to separate cookie from datetime. Then split the datetime
@@ -66,6 +67,7 @@ class CookieGetter():
         to a datetime.date object for comparison with input dates. 
         Function is resilient to malformed input data, skipping any such lines. 
         """
+
         filtered_cookie_list = []
         malformed_lines = 0
 
