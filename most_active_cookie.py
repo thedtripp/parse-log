@@ -52,7 +52,8 @@ def main() -> None:
         most_active_cookies = cg.main(LOG_FILE_NAME, DATE_STRINGS)
         cg.print_list(most_active_cookies)
     else:
-        logging.critical("No date provied. Please supply a date in YYYY-MM-DD format.")
+        logging.critical("No date provied. Please supply a date in 'YYYY-MM-DD' format.")
+        sys.exit()
 
 
 if __name__ == "__main__":

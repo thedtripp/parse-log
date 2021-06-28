@@ -14,7 +14,7 @@ from typing import List, Dict
 
 # Default variables
 DATE_STRINGS = ["2018-12-08"]
-LOG_FILE_NAME = "cookie_log.csvs"
+LOG_FILE_NAME = "cookie_log.csv"
 
 class CookieGetter():
     """Output a list of the most active cookies given a timestamped cookie log file and a target date."""
@@ -53,7 +53,6 @@ class CookieGetter():
             logging.critical(f"File: '{file_name}' not found. Please check the file name and try again.")
             sys.exit()
 
-
     def filter_list_on_dates(self, cookie_list: List[str], dates: List[datetime]) -> List[str]:
         """Return a List of all cookies that appear on the specified date(s).  
 
@@ -84,14 +83,13 @@ class CookieGetter():
 
         if malformed_lines > 0:
             logging.warning(f"Log file contains invalid data. Skipped {malformed_lines} malformed line(s).")
-            
+
         # If resulting list is empty, there are no cookies on the specified date. Nothing to do.
         if not filtered_cookie_list:
             logging.critical(f"No cookies found on date: {dates}. Exiting")
             sys.exit()
         else:
             return filtered_cookie_list
-
 
     def get_most_active_cookies(self, cookie_list: List[str]) -> List[str]:
         """Return the most frequently occuring cookies given a list of cookies with frequencies.  
@@ -159,21 +157,18 @@ class CookieGetter():
         """
 
         logging.basicConfig(
-            # filename="cookies.log", 
-            # format='%(asctime)s,%(msecs)03d %(levelname)-8s %(message)s',
-            # level=logging.INFO,
-            # datefmt='%Y-%m-%d %H:%M:%S')
             format="%(asctime)s,%(msecs)03d %(levelname)-8s %(message)s",
             level=logging.INFO,
             datefmt="%Y-%m-%d %H:%M:%S",
             handlers=[
                 logging.FileHandler("cookies.log"),
                 logging.StreamHandler()
-            ])
+            ]
+        )
 
         try:
             dates = [self.string_to_date(date_string) for date_string in date_strings]
-            # Check if all dates are None. If so, stop execution because all there are no valid dates.  
+            # Check if all dates are None. If so, stop execution because there are no valid dates.  
             if all(date is None for date in dates):
                 logging.critical("No valid date given. Please enter date in 'YYYY-MM-DD' format. Exit.")
                 sys.exit()
@@ -194,11 +189,12 @@ if __name__ == '__main__':
     class is instantiated.  Events are logged to 'cookies.log'.  
     """
 
-    # logging.basicConfig(filename="cookies.log", 
-    #     format="%(asctime)s,%(msecs)03d %(levelname)-8s %(message)s",
-    #     level=logging.INFO,
-    #     datefmt="%Y-%m-%d %H:%M:%S")
-    # logging.info("Start get_cookies.py")
+    logging.basicConfig(filename="cookies.log", 
+        format="%(asctime)s,%(msecs)03d %(levelname)-8s %(message)s",
+        level=logging.INFO,
+        datefmt="%Y-%m-%d %H:%M:%S")
+        
+    logging.info("Start get_cookies.py")
 
     cg = CookieGetter()
     cookies = cg.main(LOG_FILE_NAME, DATE_STRINGS)
