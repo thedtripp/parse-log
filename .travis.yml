@@ -1,5 +1,9 @@
-language: python
+# .travis.yml is a YAML file which specifies the programming
+# language used, and the desired building and testing environment
+# (including dependencies which must be installed before the
+# software can be built and tested) and various other parameters.
 
+language: python
 python:
   - "3.6"
   - "3.7"
