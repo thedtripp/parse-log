@@ -17,6 +17,7 @@ from typing import List
 
 from get_cookies import CookieGetter
 
+
 def parse_arguments():
     """Parse the log file name and date from the command line.  """
     
@@ -34,10 +35,6 @@ def main() -> None:
     """
 
     logging.basicConfig(
-        # filename="cookies.log", 
-        # format='%(asctime)s,%(msecs)03d %(levelname)-8s %(message)s',
-        # level=logging.INFO,
-        # datefmt='%Y-%m-%d %H:%M:%S')
         format="%(asctime)s,%(msecs)03d %(levelname)-8s %(message)s",
         level=logging.INFO,
         datefmt="%Y-%m-%d %H:%M:%S",
@@ -45,7 +42,6 @@ def main() -> None:
             logging.FileHandler("cookies.log"),
             logging.StreamHandler()
         ])
-    # logging.info("Start most_active_cookie.py")
 
     args = parse_arguments()
     LOG_FILE_NAME = args.log_file_name
@@ -58,9 +54,7 @@ def main() -> None:
     else:
         logging.critical("No date provied. Please supply a date in YYYY-MM-DD format.")
 
-    #logging.info("End most_active_cookie.py\n" + "-"*70)
-
 
 if __name__ == "__main__":
-    """Call main when file is run.  """
+
     main()

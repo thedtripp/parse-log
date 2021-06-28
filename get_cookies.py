@@ -79,12 +79,12 @@ class CookieGetter():
                 log_date = datetime.strptime(log_date_string, "%Y-%m-%d").date()
                 if log_date in dates:
                     filtered_cookie_list.append(cookie)
-            except IndexError:
+            except (ValueError, IndexError, Exception):
                 malformed_lines += 1
-            except ValueError:
-                malformed_lines += 1
+
         if malformed_lines > 0:
             logging.warning(f"Log file contains invalid data. Skipped {malformed_lines} malformed line(s).")
+            
         # If resulting list is empty, there are no cookies on the specified date. Nothing to do.
         if not filtered_cookie_list:
             logging.critical(f"No cookies found on date: {dates}. Exiting")
