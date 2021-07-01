@@ -53,7 +53,6 @@ def main() -> None:
         cg.print_list(most_active_cookies)
     else:
         logging.critical("No date provied. Please supply a date in 'YYYY-MM-DD' format.")
-        sys.exit()
 
 
 if __name__ == "__main__":
