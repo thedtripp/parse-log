@@ -1,7 +1,9 @@
 <!-- parse-log documentation master file, created by
 sphinx-quickstart on Sun Jun 27 00:02:14 2021. -->
 
-# Welcome to parse-log’s documentation!
+# Welcome to parse-log’s documentation!'
+
+[![Build Status](https://travis-ci.com/thedtripp/parse-log.svg?branch=main)](https://travis-ci.com/github/thedtripp/parse-log)
 
 ## How to use it:
 
