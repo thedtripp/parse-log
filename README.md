@@ -13,7 +13,7 @@ sphinx-quickstart on Sun Jun 27 00:02:14 2021. -->
 
 ### Requirements:
 
-* Python 3.7+
+* Python 3.6+
 
 ### Installation:
 
