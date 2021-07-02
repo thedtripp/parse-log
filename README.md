@@ -1,7 +1,7 @@
 <!-- parse-log documentation master file, created by
 sphinx-quickstart on Sun Jun 27 00:02:14 2021. -->
 
-# Welcome to parse-log’s documentation!'
+# Welcome to parse-log’s documentation!
 
 [![Build Status](https://travis-ci.com/thedtripp/parse-log.svg?branch=main)](https://travis-ci.com/github/thedtripp/parse-log)
 
@@ -90,7 +90,7 @@ A command line program to process a log file and return the most active cookie f
 
 How to use it:
 
-$ python3 most_active_cookie.py cookie_log.csv -d 2018-12-09
+`$ python3 most_active_cookie.py cookie_log.csv -d 2018-12-09`
 
 This program parses command line arguments for log file and date.  
 It instantiates the CookieGetter class and calls its methods to
