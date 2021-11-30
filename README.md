@@ -4,6 +4,7 @@ sphinx-quickstart on Sun Jun 27 00:02:14 2021. -->
 # Welcome to parse-log’s documentation!
 
 [![Build Status](https://travis-ci.com/thedtripp/parse-log.svg?branch=main)](https://travis-ci.com/github/thedtripp/parse-log)
+<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 
 ## How to use it:
 
