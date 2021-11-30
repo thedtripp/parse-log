@@ -11,9 +11,7 @@ output the most active cookies on a given day.
 """
 
 import argparse
-import datetime
 import logging
-from typing import List
 
 from get_cookies import CookieGetter
 
