@@ -15,8 +15,8 @@ import sys
 from typing import List, Dict, Set, Tuple
 
 # Default variables
+# These globals are only used if main() method is run, NOT in normal use of the program.
 DATE_STRINGS = ["2018-12-08"]
-# LOG_FILE_NAME = "cookie_log.csv"
 COOKIE_LIST = [
     ("AtY0laUfhglK3lC7", dt.date(2018, 12, 9)),
     ("SAZuXPGUrfbcn5UA", dt.date(2018, 12, 9)),
