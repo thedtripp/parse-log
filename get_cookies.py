@@ -169,7 +169,8 @@ class CookieGetter():
         )
 
         try:
-            dates = [self.string_to_date(date_string) for date_string in date_strings]
+            dates = {self.string_to_date(date_string) for date_string in date_strings}
+
             # Check if all dates are None. If so, stop execution because there are no valid dates.  
             if all(date is None for date in dates):
                 logging.critical("No valid date given. Please enter date in 'YYYY-MM-DD' format. Exit.")
@@ -178,7 +179,7 @@ class CookieGetter():
             cookies_on_date = self.filter_list_on_dates(log_file_as_list, dates)
             most_active_cookies_on_date = self.get_most_active_cookies(cookies_on_date)
             return most_active_cookies_on_date
-        except FileNotFoundError as err:
+        except FileNotFoundError:
             logging.critical(f"File: '{log_file}' not found. Please check the file name and try again. Exiting.")
             sys.exit()
             
