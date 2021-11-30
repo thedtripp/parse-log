@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
-This module is able to outFor each data format, we need a function and converts the data to a common form. In this case, a list of tuples ('cookie', datetime.date(YYYY, M, D)).
+This file parses the csv to extract the data in the proper format as described below.
+
+For each data format, we need a function and converts the data to a common form. In this case, a list of tuples ('cookie', datetime.date(YYYY, M, D)).
 put a list of the most active cookie given a timestamped list of cookies and a target date.
 
 This module contains the CookieGetter class with all the methods needed to return 
